@@ -3,7 +3,15 @@ package com.projeto.ecommerce.entities;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Embeddable
 public class OrderItemPK {
 
@@ -14,20 +22,4 @@ public class OrderItemPK {
     @ManyToOne
     @JoinColumn(name = "product_id")
     private ProductEntity productEntity;
-
-    public OrderEntity getOrderEntity() {
-        return orderEntity;
-    }
-
-    public void setOrderEntity(OrderEntity orderEntity) {
-        this.orderEntity = orderEntity;
-    }
-
-    public ProductEntity getProductEntity() {
-        return productEntity;
-    }
-
-    public void setProductEntity(ProductEntity productEntity) {
-        this.productEntity = productEntity;
-    }
 }

@@ -16,6 +16,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Entity
 public class CategoryEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;

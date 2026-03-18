@@ -15,23 +15,20 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "tb_user")
 public class UserEntity {
-//  Chave primária
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
 
+    @Id // Chave primária
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
     private String name;
     @Column(unique = true)
     private String email;
     private String phone;
     private String password;
-//  Salvar no banco com as informações do Enum e não com zero, 1, 2...
-    @Enumerated(EnumType.STRING)
-//  vai servir pra gerenciar as permissões do usuário
-    private RoleEnum roles;
-//  Anotation pra falar que é uma relaçao 1 para muitos baseado na chave estrangeira client
-    @OneToMany(mappedBy = "client")
-//  Criando uma lista pra mostrar todos os pedidos dos Usuários
-    private List<OrderEntity> orders = new ArrayList<>();
+    @Enumerated(EnumType.STRING) // Salvar no banco com as informações do Enum e não com zero, 1, 2...
+    private RoleEnum roles; // Servirá pra gerenciar as permissões do usuário
+
+    @OneToMany(mappedBy = "client") // Anotation pra falar que é uma relaçao 1 para muitos baseado na chave estrangeira client
+    private List<OrderEntity> orders = new ArrayList<>(); // Criando uma lista pra mostrar todos os pedidos dos Usuários
 }

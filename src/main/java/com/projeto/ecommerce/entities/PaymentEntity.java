@@ -1,13 +1,21 @@
 package com.projeto.ecommerce.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import java.time.Instant;
 import java.time.LocalDate;
 import java.util.UUID;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class PaymentEntity {
+
     @Id
     private UUID id;
     private LocalDate moment;
@@ -15,28 +23,4 @@ public class PaymentEntity {
     @OneToOne
     @MapsId
     private OrderEntity order;
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public LocalDate getMoment() {
-        return moment;
-    }
-
-    public void setMoment(LocalDate moment) {
-        this.moment = moment;
-    }
-
-    public OrderEntity getOrder() {
-        return order;
-    }
-
-    public void setOrder(OrderEntity order) {
-        this.order = order;
-    }
 }
