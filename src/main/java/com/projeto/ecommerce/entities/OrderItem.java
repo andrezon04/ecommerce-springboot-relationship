@@ -12,14 +12,14 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class OrderItemEntity {
+public class OrderItem {
 
     @EmbeddedId
     private OrderItemPK id = new OrderItemPK();
     private int quantity;
     private double price;
 
-    public OrderItemEntity(OrderEntity order, ProductEntity product, OrderItemPK id, int quantity, double price) {
+    public OrderItem(OrderEntity order, ProductEntity product, OrderItemPK id, int quantity, double price) {
         id.setOrderEntity(order);
         id.setProductEntity(product);
         this.quantity = quantity;

@@ -34,6 +34,6 @@ public class OrderEntity {
     private PaymentEntity payment;
 
     @OneToMany(mappedBy = "id.orderEntity") // Set é uma lista de elementos com valores que NÃO se repetem
-    private Set<OrderItemEntity> items = new HashSet<>();
+    private Set<OrderItem> items = new HashSet<>();
 
 }
